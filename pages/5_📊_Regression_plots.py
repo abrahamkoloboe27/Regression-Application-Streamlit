@@ -34,7 +34,7 @@ dic = {
 }
 
 # Header
-st.header("Regression plots", divider='rainbow')
+st.header("📈 Regression plots", divider='rainbow')
 
 # Sidebar with author information
 with st.sidebar:

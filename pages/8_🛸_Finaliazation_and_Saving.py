@@ -20,7 +20,7 @@ st.set_page_config(
 model = st.session_state.compare_models_class
 
 # Header
-st.header("Finalization and Saving", divider='rainbow')
+st.header("💾 Finalization and Saving", divider='rainbow')
 
 # Sidebar with author information
 with st.sidebar:

@@ -21,6 +21,16 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded")
 st.header("⚙️Regression Setup", divider='rainbow')
+
+# Sidebar with author information
+with st.sidebar:
+    st.markdown("""
+    ## Author
+    :blue[Abraham KOLOBOE]
+    * Email : <abklb27@gmail.com>
+    * WhatsApp : +229 91 83 84 21
+    * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-zacharie-koloboe-data-science-ia-generative-llms-machine-learning)
+    """)
 # Check if data is available
 if st.session_state.df is not None:
     with st.form("Setup"):

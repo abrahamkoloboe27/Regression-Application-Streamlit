@@ -19,7 +19,7 @@ if "metric" not in st.session_state:
     st.session_state.metric = None
 
 # Header
-st.header("Fine Tuning", divider='rainbow')
+st.header("🔨 Fine Tuning", divider='rainbow')
 
 # Sidebar with author information
 with st.sidebar:

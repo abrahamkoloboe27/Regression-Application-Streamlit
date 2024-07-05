@@ -32,7 +32,7 @@ def top_models_by_metric(pull_report, metric, m):
     return top_m_models
 
 # Header
-st.header("Train Report", divider='rainbow')
+st.header("📈  Train Report", divider='rainbow')
 
 # Sidebar with author information
 with st.sidebar:

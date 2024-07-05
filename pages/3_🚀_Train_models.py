@@ -52,8 +52,17 @@ dic = {
 n_mod = len(dic)
 
 # Header
-st.header("Training models", divider='rainbow')
+st.header("🤖Training models", divider='rainbow')
 
+# Sidebar with author information
+with st.sidebar:
+    st.markdown("""
+    ## Author
+    :blue[Abraham KOLOBOE]
+    * Email : <abklb27@gmail.com>
+    * WhatsApp : +229 91 83 84 21
+    * Linkedin : [Abraham KOLOBOE](https://www.linkedin.com/in/abraham-zacharie-koloboe-data-science-ia-generative-llms-machine-learning)
+    """)
 # Default models to exclude/include
 exclude = ["Light Gradient Boosting Machine", "CatBoost Regressor", "Gradient Boosting Regressor", "Extreme Gradient Boosting"]
 include = ["Linear Regression", "Elastic Net", "Ridge Regression", "K Neighbors Regressor", "Random Forest Regressor"]

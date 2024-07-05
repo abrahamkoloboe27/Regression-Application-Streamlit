@@ -34,7 +34,7 @@ if "df" not in st.session_state:
     st.session_state.df = None
 
 # Header
-st.header("Make an Inference", divider='rainbow')
+st.header("🔮 Make an Inference", divider='rainbow')
 
 # Sidebar with author information
 with st.sidebar:

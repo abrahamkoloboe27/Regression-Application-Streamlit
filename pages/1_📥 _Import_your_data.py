@@ -3,12 +3,12 @@ import pandas as pd
 from pycaret.datasets import get_data
 # Set page configuration
 st.set_page_config(
-    page_title="📥 Import your data",
+    page_title="Import your data",
     page_icon="📥 ",
     layout="wide",
     initial_sidebar_state="expanded",
 )
-
+st.header("📥 Import your data ", divider="rainbow")
 # Sidebar with author information
 with st.sidebar:
     st.markdown("""
@@ -59,7 +59,7 @@ with st.expander("Data", True):
         file = 1
     else :
         # Expander to load data
-        with st.expander("Load data", True):
+        
             col_1, col_2 = st.columns([2, 6])
             with col_1:
                 formats = ["csv", "xlsx", "xls"]
@@ -79,29 +79,31 @@ if file is not None:
         if st.toggle("Show data"):
             st.dataframe(st.session_state.data, use_container_width=True)
         columns_to_use = []
-        if st.toggle("Filter dataset", True):
-            c_1, c_2 = st.columns(2)
-            with c_1:
-                st.subheader("Select columns")
-                columns_to_use = st.multiselect("\nSelect columns to exclude for regression",
-                                                options=st.session_state.data.columns)
-            with c_2:
-                if st.checkbox("Use all rows", False):
-                    pass
-                else:
-                    st.subheader("Number of rows")
-                    n_rows = st.slider("Number of rows",
-                                       min_value=int(len(st.session_state.data) / 10),
-                                       value=int(4 * len(st.session_state.data) / 10),
-                                       max_value=len(st.session_state.data), step=1)
+        if st.session_state.data is not None : 
+            if st.toggle("Filter dataset", True):
+                c_1, c_2 = st.columns(2)
+                with c_1:
+                    st.subheader("Select columns")
+                    
+                    columns_to_use = st.multiselect("\nSelect columns to exclude for regression",
+                                                    options=st.session_state.data.columns)
+                with c_2:
+                    if st.checkbox("Use all rows", False):
+                        pass
+                    else:
+                        st.subheader("Number of rows")
+                        n_rows = st.slider("Number of rows",
+                                        min_value=int(len(st.session_state.data) / 10),
+                                        value=int(4 * len(st.session_state.data) / 10),
+                                        max_value=len(st.session_state.data), step=1)
 
-            valider = st.button("Exclude")
+                valider = st.button("Exclude")
 
-            if valider:
-                st.session_state.df = st.session_state.data.drop(columns_to_use, axis=1)
-                st.session_state.df = st.session_state.df.iloc[:n_rows]
-                st.dataframe(st.session_state.df, use_container_width=True)
-        else:
-            st.session_state.df = st.session_state.data
-            columns_to_use = st.session_state.data.columns
-    st.session_state.columns_to_use = columns_to_use
+                if valider:
+                    st.session_state.df = st.session_state.data.drop(columns_to_use, axis=1)
+                    st.session_state.df = st.session_state.df.iloc[:n_rows]
+                    st.dataframe(st.session_state.df, use_container_width=True)
+            else:
+                st.session_state.df = st.session_state.data
+                columns_to_use = st.session_state.data.columns
+        st.session_state.columns_to_use = columns_to_use
